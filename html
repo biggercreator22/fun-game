@@ -1,146 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HTML Racing Game</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stay Safe Online made by unity – Stop Getting Hacked</title>
+  <meta name="description" content="A simple, friendly website that explains how hacks happen, how different malware works, and how to protect yourself online." />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    canvas { display: block; margin: 0 auto; background: #444; }
-    body { background: #222; color: #fff; font-family: sans-serif; text-align: center; }
-    h1 { margin: 20px; }
+    :root{
+      --bg: #0f172a; --panel: #111827; --muted: #94a3b8;
+      --card: #0b1220; --ink: #e5e7eb; --brand: #22d3ee;
+      --accent: #a78bfa; --ok: #4ade80; --warn: #fbbf24;
+      --bad: #f87171; --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; color:var(--ink); background: radial-gradient(1200px 600px at 10% -10%, rgba(167,139,250,.15), transparent), radial-gradient(900px 500px at 90% 10%, rgba(34,211,238,.12), transparent), var(--bg);}
+    a{color:var(--brand); text-decoration:none} a:hover{text-decoration:underline}
+    header{position:sticky; top:0; z-index:10; backdrop-filter: saturate(140%) blur(8px); background: linear-gradient(180deg, rgba(15,23,42,.9), rgba(15,23,42,.7)); border-bottom:1px solid rgba(255,255,255,.06);}
+    .container{max-width:1100px; margin:0 auto; padding:0 18px}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px}
+    .logo{width:34px; height:34px; border-radius:10px; background:conic-gradient(from 180deg, var(--brand), var(--accent)); box-shadow: var(--shadow)}
+    .nav a{margin-left:18px; opacity:.9}
+    .hero{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; padding:60px 0 30px}
+    @media (max-width: 880px){ .hero{grid-template-columns:1fr; padding:36px 0 10px} }
+    .hero-card{background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding:28px; box-shadow: var(--shadow);}
+    h1{font-size:clamp(28px, 4vw, 48px); line-height:1.15; margin:0 0 10px}
+    .subtitle{color:var(--muted); font-size:clamp(14px, 2.2vw, 18px)}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:18px; box-shadow: var(--shadow);}
+    .kicker{font-size:12px; text-transform:uppercase; letter-spacing:.14em; color:var(--brand); font-weight:700}
+    h2{margin:4px 0 8px; font-size:clamp(22px, 2.6vw, 28px)}
+    h3{margin:8px 0 6px; font-size:clamp(18px, 2.2vw, 22px)}
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.03); font-weight:600}
+    .dot{width:8px; height:8px; border-radius:50%}
+    .tips li{margin:8px 0} .tips strong{color:#fff}
+    .checklist li{display:flex; align-items:start; gap:10px; padding:10px 0}
+    .check{flex:0 0 22px; height:22px; border-radius:6px; border:1.5px solid rgba(255,255,255,.2); display:inline-grid; place-items:center}
+    .check input{accent-color: var(--ok); width:18px; height:18px}
+    .pill{display:inline-block; padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.1); margin:4px 6px 0 0; font-size:13px; color:var(--muted)}
+    .footer{color:var(--muted); font-size:14px; padding:26px 0 40px}
+    #strength{margin-top:8px; font-weight:bold}
+    #news-feed, #quiz{margin-top:10px}
+    #progress-container{background:#222; border-radius:8px; height:12px; overflow:hidden; margin:10px 0;}
+    #progress-bar{background:#22d3ee; height:100%; width:0%;}
   </style>
 </head>
 <body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span> <span>Stay Safe Online made by bentley</span>
+      </div>
+      <nav aria-label="Main">
+        <a href="#how-hacks-happen">How Hacks Happen</a>
+        <a href="#malware">Malware Types</a>
+        <a href="#protect">Protect Yourself</a>
+        <a href="#phishing">Spot Phishing</a>
+        <a href="#help">If You’re Hacked</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>🏁 Racing Game - Use Arrow Keys</h1>
-<canvas id="gameCanvas" width="400" height="600"></canvas>
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-card">
+        <div class="badge" aria-label="status"><span class="dot" style="background:var(--ok)"></span> You’re in the right place</div>
+        <h1>Stop getting hacked. Understand threats. Stay safe.</h1>
+        <p class="subtitle">This page explains—in plain language—how cyber attacks happen, how different viruses and malware work, and the easy steps you can take today to protect your accounts and devices.</p>
+        <div style="margin-top:14px">
+          <a class="pill" href="#protect">Quick Start Checklist</a>
+          <a class="pill" href="#malware">Learn Malware Types</a>
+          <a class="pill" href="#help">What to do if hacked</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <h3>Top 5 things that prevent most hacks</h3>
+        <ol class="tips">
+          <li><strong>Use a password manager</strong> and make every password unique.</li>
+          <li><strong>Turn on MFA/2FA</strong> (prefer authenticator app) for email, banking, socials.</li>
+          <li><strong>Update</strong> your OS, browser, and apps automatically.</li>
+          <li><strong>Think before you click</strong>—verify unexpected links/attachments.</li>
+          <li><strong>Back up</strong> important files to the cloud and an external drive.</li>
+        </ol>
+        <p class="subtitle">These five habits block the majority of common attacks like credential stuffing, phishing, and ransomware.</p>
+      </div>
+    </section>
+
+    <!-- Navigation Link Targets -->
+    <section id="how-hacks-happen" class="card">
+      <span class="kicker">How Hacks Happen</span>
+      <h2>How Hacks Happen</h2>
+      <p>Hacks often begin with phishing emails, weak passwords, or outdated software that attackers exploit. Social engineering techniques trick users into giving away access without realizing it.</p>
+    </section>
+
+    <section id="malware" class="card">
+  <span class="kicker">Malware Types</span>
+  <h2>Malware Types</h2>
+  <div style="display:grid; gap:18px; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="card">
+  <h3>📛 Virus</h3>
+  <p>Attaches to legitimate files and spreads when executed.<br>
+    <strong>Effect:</strong> Corrupts or deletes data.<br>
+    <strong>Protect Yourself:</strong> Use antivirus software and avoid opening unknown email attachments.
+  </p>
+</div>
+<div class="card">
+  <h3>🪱 Worm</h3>
+  <p>Spreads across networks without user action.<br>
+    <strong>Effect:</strong> Slows systems, spreads fast.<br>
+    <strong>Protect Yourself:</strong> Keep your operating system and software updated, and use a firewall.
+  </p>
+</div>
+<div class="card">
+  <h3>🧨 Ransomware</h3>
+  <p>Encrypts files and demands payment.<br>
+    <strong>Effect:</strong> Locks users out of their data.<br>
+    <strong>Protect Yourself:</strong> Back up your data regularly and avoid clicking on suspicious links.
+  </p>
+</div>
+<div class="card">
+  <h3>🕵️ Spyware</h3>
+  <p>Monitors user activity secretly.<br>
+    <strong>Effect:</strong> Captures passwords, keystrokes.<br>
+    <strong>Protect Yourself:</strong> Use anti-spyware tools and avoid installing shady browser extensions.
+  </p>
+</div>
+<div class="card">
+  <h3>🎭 Trojan</h3>
+  <p>Disguised as legit software.<br>
+    <strong>Effect:</strong> Installs other malware, steals data.<br>
+    <strong>Protect Yourself:</strong> Download software only from official or trusted sources.
+  </p>
+</div>
+<div class="card">
+  <h3>📢 Adware</h3>
+  <p>Shows unwanted ads.<br>
+    <strong>Effect:</strong> Slows system, annoying popups.<br>
+    <strong>Protect Yourself:</strong> Avoid free software bundles and use an ad blocker.
+  </p>
+</div>
+<div class="card">
+  <h3>🛠️ Rootkit</h3>
+  <p>Grants stealth admin access.<br>
+    <strong>Effect:</strong> Hides other malware.<br>
+    <strong>Protect Yourself:</strong> Keep your system updated and use security software with rootkit detection.
+  </p>
+</div>
+<div class="card">
+  <h3>⌨️ Keylogger</h3>
+  <p>Records every keystroke.<br>
+    <strong>Effect:</strong> Steals login credentials.<br>
+    <strong>Protect Yourself:</strong> Use anti-keylogger software and enable 2FA on accounts.
+  </p>
+</div>
+<div class="card">
+  <h3>🤖 Botnet</h3>
+  <p>Network of controlled devices.<br>
+    <strong>Effect:</strong> Launches attacks like DDoS.<br>
+    <strong>Protect Yourself:</strong> Keep your router firmware updated and avoid unsecured IoT devices.
+  </p>
+</div>
+<div class="card">
+  <h3>🧬 Fileless Malware</h3>
+  <p>Lives in memory, uses legit tools.<br>
+    <strong>Effect:</strong> Hard to detect or remove.<br>
+    <strong>Protect Yourself:</strong> Use behavioral-based antivirus tools and restrict admin rights.
+  </p>
+</div>
+  </div>
+</section>
+
+    <section id="protect" class="card">
+  <span class="kicker">Protect Yourself</span>
+  <h2>How to Protect Yourself</h2>
+  <ul class="checklist">
+    <li><span class="check"><input type="checkbox" /></span> Use strong, unique passwords with a password manager</li>
+    <li><span class="check"><input type="checkbox" /></span> Turn on two-factor authentication (2FA)</li>
+    <li><span class="check"><input type="checkbox" /></span> Keep your device and apps up to date</li>
+    <li><span class="check"><input type="checkbox" /></span> Avoid clicking on suspicious links or attachments</li>
+    <li><span class="check"><input type="checkbox" /></span> Back up your important files regularly</li>
+  </ul>
+</section>
+
+    <section id="phishing" class="card" style="background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%); color: #fff;">
+  <span class="kicker" style="color: #e0d7ff;">Spot Phishing</span>
+  <h2 style="color:#fff; margin-bottom:16px;">How to Spot Phishing Scams — Stay Alert!</h2>
+  <p style="font-style: italic; opacity: 0.85; margin-bottom: 24px;">
+    Phishing scams try to trick you into giving away your info. Here’s what to watch out for:
+  </p>
+  <ul class="tips" style="list-style:none; padding:0; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
+    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
+      <span style="font-size:24px; line-height:1;">📧</span>
+      <div>
+        <strong>Sender Is Off:</strong> Emails from scammers often use suspicious or misspelled sender addresses. Always double-check the sender's email domain.
+      </div>
+    </li>
+    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
+      <span style="font-size:24px;">⏰</span>
+      <div>
+        <strong>Urgent Messages:</strong> Scammers create fake emergencies to rush you into action — breathe, then verify before reacting.
+      </div>
+    </li>
+    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
+      <span style="font-size:24px;">📝</span>
+      <div>
+        <strong>Typos & Grammar:</strong> Professional companies proofread emails. Mistakes and awkward phrasing can be red flags.
+      </div>
+    </li>
+    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
+      <span style="font-size:24px;">🔗</span>
+      <div>
+        <strong>Strange Links:</strong> Hover over links to see where they really go. If it looks weird or unrelated, don’t click!
+      </div>
+    </li>
+    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
+      <span style="font-size:24px;">🔒</span>
+      <div>
+        <strong>Requests for Sensitive Info:</strong> Legit companies never ask for passwords or payment info via email. When in doubt, contact them directly.
+      </div>
+    </li>
+  </ul>
+  <p style="margin-top:24px; font-weight:600; font-size:14px; opacity:0.8;">
+    Remember: When something feels off, trust your gut and verify before acting.
+  </p>
+</section>
+
+    <section id="help" class="card">
+      <span class="kicker">If You’re Hacked</span>
+      <h2>Steps to Take if You’re Hacked</h2>
+      <ol class="tips">
+        <li><strong>Change Important Passwords:</strong> Start with email, banking, social media.</li>
+        <li><strong>Enable 2FA:</strong> If it was off, turn it on immediately.</li>
+        <li><strong>Run a Malware Scan:</strong> Use antivirus tools to clean your system.</li>
+        <li><strong>Warn Your Contacts:</strong> Tell friends or colleagues if your account might be compromised.</li>
+        <li><strong>Report & Notify:</strong> Report to the service provider and relevant authorities if needed.</li>
+      </ol>
+    </section>
+    
+    <section id="cyber-news" class="card" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #fff;">
+  <span class="kicker" style="color: var(--brand); font-size: 12px;">CYBER NEWS</span>
+  <h2 style="font-size: 24px; font-weight: 700; margin: 6px 0 12px;">Latest Cybersecurity Headlines</h2>
+  <p style="color: #94a3b8; font-size: 15px; margin-bottom: 20px;">
+    Stay up to date with tech and security stories from around the world.
+  </p>
+  <ul id="news-feed" style="list-style: none; padding-left: 0; margin: 0;">
+    <li>Loading news...</li> <!-- This gets replaced by JS -->
+  </ul>
+</section>
+
+    <!-- Remaining Content -->
+    <section class="card">
+      <span class="kicker">Interactive</span>
+      <h2>Password Strength Checker</h2>
+      <input type="password" id="password" placeholder="Type your password" />
+      <p id="strength">Strength: </p>
+    </section>
+    <!-- ... rest of your existing sections (progress tracker, news feed, quiz, visitors, settings) ... -->
+    <p class="footer">stay safe on the internet please share this website to people. ✨</p>
+  </main>
+
+  <script>
+    // Password Strength Checker
+    const passwordInput = document.getElementById('password');
+    const strengthText = document.getElementById('strength');
+    passwordInput.addEventListener('input', () => {
+      const pwd = passwordInput.value;
+      let score = 0;
+      if (/[A-Z]/.test(pwd)) score++;
+      if (/[a-z]/.test(pwd)) score++;
+      if (/\d/.test(pwd)) score++;
+      if (/[\W_]/.test(pwd)) score++;
+      if (pwd.length >= 8) score++;
+      const strength = ["Very Weak","Weak","Medium","Strong","Very Strong"];
+      strengthText.textContent = `Strength: ${strength[Math.min(score,4)]}`;
+    });
+
+    // Checklist Progress (if you have more checklist items elsewhere)
+    const checkboxes = document.querySelectorAll('.checklist input');
+    const progressBar = document.getElementById('progress-bar');
+    function updateProgress() {
+      const total = checkboxes.length;
+      const checked = Array.from(checkboxes).filter(c => c.checked).length;
+      progressBar.style.width = total ? `${Math.round((checked / total) * 100)}%` : '0%';
+    }
+    checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+    updateProgress();
+
+    // Dark / Light Mode Toggle
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (toggleBtn) {
+      toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+      });
+    }
+
+     // Visitor Counter
+    document.addEventListener('DOMContentLoaded', () => {
+      const visitsEl = document.getElementById('visits');
+      if (visitsEl) {
+        const visits = parseInt(localStorage.getItem('visits') || '0') + 1;
+        localStorage.setItem('visits', visits);
+        visitsEl.textContent = `Visitor count (this browser): ${visits}`;
+      }
+    });
+
+    // Quiz Logic
+    const quiz = [
+      { question: "Is 'paypaI.com' a legitimate site?", options: ["Yes", "No"], answer: 1 },
+      { question: "Should you reuse passwords?", options: ["Yes", "No"], answer: 1 }
+    ];
+    const quizContainer = document.getElementById('quiz');
+    if (quizContainer) {
+      quizContainer.innerHTML = quiz.map((q, i) => `
+        <div class="quiz-question">
+          <p>${q.question}</p>
+          ${q.options.map((opt, idx) => `<button onclick="checkAnswer(${i},${idx})">${opt}</button>`).join('')}
+        </div>
+      `).join('');
+    }
+    window.checkAnswer = (qIdx, optIdx) => {
+      alert(optIdx === quiz[qIdx].answer ? "✅ Correct!" : "❌ Try again.");
+    };
+
+    // News Feed (replace 'YOUR_API_KEY' with a valid key)
+    async function loadCyberNews() {
+      const container = document.getElementById('news-feed');
+      if (!container) return;
+      try {
+        const res = await fetch('https://api.currentsapi.services/v1/latest-news?apiKey=1fV9krzvJ1COrayjqLdUVwqtPxwHIrRWSTDeM7VeVAIR6y5E&category=technology');
+        const data = await res.json();
+        const articles = data.news || [];
+        container.innerHTML = articles.map(a => `<li><a href="${a.url}" target="_blank">${a.title}</a></li>`).join('');
+      } catch (e) {
+        container.innerHTML = '<li>Unable to load news.</li>';
+      }
+    }
+    loadCyberNews();
 
 <script>
-  const canvas = document.getElementById('gameCanvas');
-  const ctx = canvas.getContext('2d');
 
-  const road = {
-    left: 100,
-    right: 300,
-    width: 200
-  };
-
-  const player = {
-    x: 200 - 25,
-    y: 500,
-    width: 50,
-    height: 100,
-    color: 'lime',
-    speed: 5
-  };
-
-  const enemies = [];
-  let score = 0;
-  let frames = 0;
-  let gameRunning = true;
-
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft' && player.x > road.left) {
-      player.x -= player.speed;
-    } else if (e.key === 'ArrowRight' && player.x + player.width < road.right + road.left) {
-      player.x += player.speed;
-    }
-  });
-
-  function spawnEnemy() {
-    const enemyWidth = 50;
-    const enemyHeight = 100;
-    const x = road.left + Math.random() * (road.width - enemyWidth);
-    enemies.push({
-      x,
-      y: -enemyHeight,
-      width: enemyWidth,
-      height: enemyHeight,
-      speed: 4 + Math.random() * 2,
-      color: 'red'
+    // Save checklist items to localStorage
+    checkboxes.forEach((box, i) => {
+      const key = `safecheck-${i}`;
+      const saved = localStorage.getItem(key);
+      if (saved === '1') box.checked = true;
+      box.addEventListener('change', () => {
+        localStorage.setItem(key, box.checked ? '1' : '0');
+        updateProgress();
+      });
     });
-  }
-
-  function drawRoad() {
-    ctx.fillStyle = '#111';
-    ctx.fillRect(road.left, 0, road.width, canvas.height);
-
-    // center lines
-    ctx.strokeStyle = '#fff';
-    ctx.setLineDash([20, 20]);
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(road.left + road.width / 2, 0);
-    ctx.lineTo(road.left + road.width / 2, canvas.height);
-    ctx.stroke();
-    ctx.setLineDash([]);
-  }
-
-  function drawCar(car) {
-    ctx.fillStyle = car.color;
-    ctx.fillRect(car.x, car.y, car.width, car.height);
-  }
-
-  function checkCollision(a, b) {
-    return (
-      a.x < b.x + b.width &&
-      a.x + a.width > b.x &&
-      a.y < b.y + b.height &&
-      a.y + a.height > b.y
-    );
-  }
-
-  function drawScore() {
-    ctx.fillStyle = 'white';
-    ctx.font = '20px Arial';
-    ctx.fillText("Score: " + score, 10, 30);
-  }
-
-  function gameOver() {
-    gameRunning = false;
-    ctx.fillStyle = 'red';
-    ctx.font = '40px Arial';
-    ctx.fillText("GAME OVER", 90, 300);
-  }
-
-  function update() {
-    if (!gameRunning) return;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawRoad();
-    drawCar(player);
-
-    // Enemies
-    enemies.forEach(enemy => {
-      enemy.y += enemy.speed;
-      drawCar(enemy);
-
-      if (checkCollision(player, enemy)) {
-        gameOver();
-      }
-    });
-
-    // Remove off-screen enemies
-    for (let i = enemies.length - 1; i >= 0; i--) {
-      if (enemies[i].y > canvas.height) {
-        enemies.splice(i, 1);
-        score++;
-      }
-    }
-
-    // Spawn new enemies
-    if (frames % 60 === 0) {
-      spawnEnemy();
-    }
-
-    drawScore();
-    frames++;
-    requestAnimationFrame(update);
-  }
-
-  update();
-</script>
-
+  </script>
 </body>
 </html>
