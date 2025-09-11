@@ -94,158 +94,689 @@
       <p>Hacks often begin with phishing emails, weak passwords, or outdated software that attackers exploit. Social engineering techniques trick users into giving away access without realizing it.</p>
     </section>
 
-    <section id="malware" class="card">
+<style>
+  #malware .card {
+    background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%);
+    color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 1.5rem 1.8rem;
+    transition: background 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  #malware .card h3 {
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
+
+  #malware .card p {
+    opacity: 0.9;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+
+  #malware .card:hover {
+    background: linear-gradient(135deg, #8b67e7 0%, #1bb8db 100%);
+    cursor: pointer;
+  }
+</style>
+
+<section id="malware" class="card">
   <span class="kicker">Malware Types</span>
   <h2>Malware Types</h2>
   <div style="display:grid; gap:18px; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));">
+
     <div class="card">
-  <h3>📛 Virus</h3>
-  <p>Attaches to legitimate files and spreads when executed.<br>
-    <strong>Effect:</strong> Corrupts or deletes data.<br>
-    <strong>Protect Yourself:</strong> Use antivirus software and avoid opening unknown email attachments.
-  </p>
-</div>
-<div class="card">
-  <h3>🪱 Worm</h3>
-  <p>Spreads across networks without user action.<br>
-    <strong>Effect:</strong> Slows systems, spreads fast.<br>
-    <strong>Protect Yourself:</strong> Keep your operating system and software updated, and use a firewall.
-  </p>
-</div>
-<div class="card">
-  <h3>🧨 Ransomware</h3>
-  <p>Encrypts files and demands payment.<br>
-    <strong>Effect:</strong> Locks users out of their data.<br>
-    <strong>Protect Yourself:</strong> Back up your data regularly and avoid clicking on suspicious links.
-  </p>
-</div>
-<div class="card">
-  <h3>🕵️ Spyware</h3>
-  <p>Monitors user activity secretly.<br>
-    <strong>Effect:</strong> Captures passwords, keystrokes.<br>
-    <strong>Protect Yourself:</strong> Use anti-spyware tools and avoid installing shady browser extensions.
-  </p>
-</div>
-<div class="card">
-  <h3>🎭 Trojan</h3>
-  <p>Disguised as legit software.<br>
-    <strong>Effect:</strong> Installs other malware, steals data.<br>
-    <strong>Protect Yourself:</strong> Download software only from official or trusted sources.
-  </p>
-</div>
-<div class="card">
-  <h3>📢 Adware</h3>
-  <p>Shows unwanted ads.<br>
-    <strong>Effect:</strong> Slows system, annoying popups.<br>
-    <strong>Protect Yourself:</strong> Avoid free software bundles and use an ad blocker.
-  </p>
-</div>
-<div class="card">
-  <h3>🛠️ Rootkit</h3>
-  <p>Grants stealth admin access.<br>
-    <strong>Effect:</strong> Hides other malware.<br>
-    <strong>Protect Yourself:</strong> Keep your system updated and use security software with rootkit detection.
-  </p>
-</div>
-<div class="card">
-  <h3>⌨️ Keylogger</h3>
-  <p>Records every keystroke.<br>
-    <strong>Effect:</strong> Steals login credentials.<br>
-    <strong>Protect Yourself:</strong> Use anti-keylogger software and enable 2FA on accounts.
-  </p>
-</div>
-<div class="card">
-  <h3>🤖 Botnet</h3>
-  <p>Network of controlled devices.<br>
-    <strong>Effect:</strong> Launches attacks like DDoS.<br>
-    <strong>Protect Yourself:</strong> Keep your router firmware updated and avoid unsecured IoT devices.
-  </p>
-</div>
-<div class="card">
-  <h3>🧬 Fileless Malware</h3>
-  <p>Lives in memory, uses legit tools.<br>
-    <strong>Effect:</strong> Hard to detect or remove.<br>
-    <strong>Protect Yourself:</strong> Use behavioral-based antivirus tools and restrict admin rights.
-  </p>
-</div>
+      <h3>📛 Virus</h3>
+      <p>
+        Attaches to legitimate files and spreads when executed.<br>
+        <strong>Effect:</strong> Corrupts or deletes data.<br>
+        <strong>Protect Yourself:</strong> Use antivirus software and avoid opening unknown email attachments.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🪱 Worm</h3>
+      <p>
+        Spreads across networks without user action.<br>
+        <strong>Effect:</strong> Slows systems, spreads fast.<br>
+        <strong>Protect Yourself:</strong> Keep your operating system and software updated, and use a firewall.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🧨 Ransomware</h3>
+      <p>
+        Encrypts files and demands payment.<br>
+        <strong>Effect:</strong> Locks users out of their data.<br>
+        <strong>Protect Yourself:</strong> Back up your data regularly and avoid clicking on suspicious links.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🕵️ Spyware</h3>
+      <p>
+        Monitors user activity secretly.<br>
+        <strong>Effect:</strong> Captures passwords, keystrokes.<br>
+        <strong>Protect Yourself:</strong> Use anti-spyware tools and avoid installing shady browser extensions.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🎭 Trojan</h3>
+      <p>
+        Disguised as legit software.<br>
+        <strong>Effect:</strong> Installs other malware, steals data.<br>
+        <strong>Protect Yourself:</strong> Download software only from official or trusted sources.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📢 Adware</h3>
+      <p>
+        Shows unwanted ads.<br>
+        <strong>Effect:</strong> Slows system, annoying popups.<br>
+        <strong>Protect Yourself:</strong> Avoid free software bundles and use an ad blocker.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🛠️ Rootkit</h3>
+      <p>
+        Grants stealth admin access.<br>
+        <strong>Effect:</strong> Hides other malware.<br>
+        <strong>Protect Yourself:</strong> Keep your system updated and use security software with rootkit detection.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>⌨️ Keylogger</h3>
+      <p>
+        Records every keystroke.<br>
+        <strong>Effect:</strong> Steals login credentials.<br>
+        <strong>Protect Yourself:</strong> Use anti-keylogger software and enable 2FA on accounts.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🤖 Botnet</h3>
+      <p>
+        Network of controlled devices.<br>
+        <strong>Effect:</strong> Launches attacks like DDoS.<br>
+        <strong>Protect Yourself:</strong> Keep your router firmware updated and avoid unsecured IoT devices.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🧬 Fileless Malware</h3>
+      <p>
+        Lives in memory, uses legit tools.<br>
+        <strong>Effect:</strong> Hard to detect or remove.<br>
+        <strong>Protect Yourself:</strong> Use behavioral-based antivirus tools and restrict admin rights.
+      </p>
+    </div>
+
+    <!-- Additional Virus Types -->
+
+    <div class="card">
+      <h3>🗂️ File Infector Virus</h3>
+      <p>
+        Infects executable files (.exe, .com).<br>
+        <strong>Effect:</strong> Spreads when infected files run.<br>
+        <strong>Protect Yourself:</strong> Avoid running unknown files and scan downloads.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>💽 Boot Sector Virus</h3>
+      <p>
+        Infects the boot sector or master boot record.<br>
+        <strong>Effect:</strong> Activates before OS boots.<br>
+        <strong>Protect Yourself:</strong> Use updated antivirus and avoid using untrusted external drives.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📄 Macro Virus</h3>
+      <p>
+        Targets macros in documents like Word or Excel.<br>
+        <strong>Effect:</strong> Spreads via infected documents.<br>
+        <strong>Protect Yourself:</strong> Disable macros and scan attachments before opening.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🔄 Polymorphic Virus</h3>
+      <p>
+        Changes its code to avoid detection.<br>
+        <strong>Effect:</strong> Hard to detect with signature-based antivirus.<br>
+        <strong>Protect Yourself:</strong> Use heuristic and behavior-based antivirus tools.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🔧 Metamorphic Virus</h3>
+      <p>
+        Rewrites its own code before infecting.<br>
+        <strong>Effect:</strong> Evades detection by changing structure.<br>
+        <strong>Protect Yourself:</strong> Keep software updated and use advanced antivirus.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Resident Virus</h3>
+      <p>
+        Stays in memory to infect files during use.<br>
+        <strong>Effect:</strong> Infects files dynamically.<br>
+        <strong>Protect Yourself:</strong> Use real-time antivirus protection.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>⚡ Direct Action Virus</h3>
+      <p>
+        Infects files only when executed, doesn’t stay in memory.<br>
+        <strong>Effect:</strong> Quick infection upon execution.<br>
+        <strong>Protect Yourself:</strong> Scan files before execution.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>♾️ Multipartite Virus</h3>
+      <p>
+        Infects boot sector and executable files simultaneously.<br>
+        <strong>Effect:</strong> Multiple infection points make it hard to remove.<br>
+        <strong>Protect Yourself:</strong> Use full system scans and boot sector protection.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🕵️‍♂️ Stealth Virus</h3>
+      <p>
+        Hides itself by intercepting system requests.<br>
+        <strong>Effect:</strong> Difficult to detect.<br>
+        <strong>Protect Yourself:</strong> Use heuristic antivirus and behavioral analysis.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🔒 Encrypted Virus</h3>
+      <p>
+        Encrypts its code to hide from antivirus.<br>
+        <strong>Effect:</strong> Activates only after decryption.<br>
+        <strong>Protect Yourself:</strong> Use antivirus with encryption detection.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🕳️ Spacefiller (Cavity) Virus</h3>
+      <p>
+        Inserts itself into empty spaces in files.<br>
+        <strong>Effect:</strong> Avoids increasing file size, harder to detect.<br>
+        <strong>Protect Yourself:</strong> Use deep scanning antivirus tools.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📄 Companion Virus</h3>
+      <p>
+        Creates new files with similar names to run first.<br>
+        <strong>Effect:</strong> Tricks OS into executing the virus.<br>
+        <strong>Protect Yourself:</strong> Monitor file extensions and suspicious files.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>❌ Overwrite Virus</h3>
+      <p>
+        Overwrites and destroys original file content.<br>
+        <strong>Effect:</strong> Causes data loss.<br>
+        <strong>Protect Yourself:</strong> Keep backups and avoid suspicious files.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🌐 Browser Hijacker Virus</h3>
+      <p>
+        Alters browser settings or redirects traffic.<br>
+        <strong>Effect:</strong> Changes homepage, inserts ads.<br>
+        <strong>Protect Yourself:</strong> Avoid unknown extensions and reset browser settings.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>📧 Email Virus</h3>
+      <p>
+        Spreads through infected email attachments.<br>
+        <strong>Effect:</strong> Infects systems via emails.<br>
+        <strong>Protect Yourself:</strong> Don’t open suspicious attachments and use email filters.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🌐 Network Virus</h3>
+      <p>
+        Spreads over networks exploiting vulnerabilities.<br>
+        <strong>Effect:</strong> Infects multiple systems.<br>
+        <strong>Protect Yourself:</strong> Use firewalls and patch systems regularly.
+      </p>
+    </div>
+
   </div>
 </section>
 
-    <section id="protect" class="card">
+    <style>
+  #protect {
+    background: linear-gradient(135deg, #3b82f6, #2563eb); /* blue gradient */
+    color: #e0e7ff;
+    padding: 2rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 12px 36px rgba(37, 99, 235, 0.4);
+    max-width: 600px;
+    margin: 2rem auto;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    user-select: none;
+  }
+
+  #protect .kicker {
+    display: inline-block;
+    background: rgba(255 255 255 / 0.2);
+    color: #bfdbfe;
+    font-weight: 700;
+    font-size: 0.875rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 9999px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  #protect h2 {
+    font-weight: 900;
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }
+
+  /* Checklist styling */
+  #protect .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #protect .checklist li {
+    background: rgba(255 255 255 / 0.15);
+    border-radius: 12px;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+    user-select: none;
+  }
+
+  #protect .checklist li:hover,
+  #protect .checklist li:focus {
+    background: rgba(255 255 255 / 0.35);
+    color: #1e3a8a; /* darker blue on hover */
+    outline: none;
+  }
+</style>
+
+<section id="protect" class="card" role="region" aria-labelledby="protect-title">
   <span class="kicker">Protect Yourself</span>
-  <h2>How to Protect Yourself</h2>
+  <h2 id="protect-title">How to Protect Yourself</h2>
   <ul class="checklist">
-    <li><span class="check"><input type="checkbox" /></span> Use strong, unique passwords with a password manager</li>
-    <li><span class="check"><input type="checkbox" /></span> Turn on two-factor authentication (2FA)</li>
-    <li><span class="check"><input type="checkbox" /></span> Keep your device and apps up to date</li>
-    <li><span class="check"><input type="checkbox" /></span> Avoid clicking on suspicious links or attachments</li>
-    <li><span class="check"><input type="checkbox" /></span> Back up your important files regularly</li>
+    <li tabindex="0">Use strong, unique passwords with a password manager</li>
+    <li tabindex="0">Turn on two-factor authentication (2FA)</li>
+    <li tabindex="0">Keep your device and apps up to date</li>
+    <li tabindex="0">Avoid clicking on suspicious links or attachments</li>
+    <li tabindex="0">Back up your important files regularly</li>
+    <li tabindex="0">Use secure and private Wi-Fi networks; avoid public Wi-Fi when possible</li>
+    <li tabindex="0">Install reputable antivirus and anti-malware software</li>
+    <li tabindex="0">Be cautious about sharing personal info on social media</li>
+    <li tabindex="0">Regularly review privacy and security settings on apps and devices</li>
+    <li tabindex="0">Learn to recognize phishing scams and suspicious emails</li>
   </ul>
 </section>
 
-    <section id="phishing" class="card" style="background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%); color: #fff;">
-  <span class="kicker" style="color: #e0d7ff;">Spot Phishing</span>
-  <h2 style="color:#fff; margin-bottom:16px;">How to Spot Phishing Scams — Stay Alert!</h2>
-  <p style="font-style: italic; opacity: 0.85; margin-bottom: 24px;">
+    <section id="phishing" class="card" style="
+  background: linear-gradient(135deg, #a78bfa 0%, #22d3ee 100%);
+  color: #fff;
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  max-width: 900px;
+  margin: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+">
+  <span class="kicker" style="
+    display: inline-block;
+    background: rgba(255 255 255 / 0.15);
+    padding: 0.3rem 0.8rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #e0d7ff;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  ">Spot Phishing</span>
+
+  <h2 style="
+    font-size: 2.2rem;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  ">How to Spot Phishing Scams — Stay Alert!</h2>
+
+  <p style="
+    font-style: italic;
+    opacity: 0.85;
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    line-height: 1.5;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  ">
     Phishing scams try to trick you into giving away your info. Here’s what to watch out for:
   </p>
-  <ul class="tips" style="list-style:none; padding:0; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:20px;">
-    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
-      <span style="font-size:24px; line-height:1;">📧</span>
-      <div>
-        <strong>Sender Is Off:</strong> Emails from scammers often use suspicious or misspelled sender addresses. Always double-check the sender's email domain.
+
+  <ul class="tips" style="
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  ">
+    <!-- Each tip card -->
+    <li style="
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+      cursor: default;
+    " 
+    onmouseover="this.style.background='rgba(0, 0, 0, 0.3)'" 
+    onmouseout="this.style.background='rgba(0, 0, 0, 0.18)'"
+    >
+      <span style="font-size: 28px; line-height: 1;">📧</span>
+      <div style="font-size: 1rem; font-weight: 600; color: #e0d7ff;">
+        Sender Is Off:
+        <p style="font-weight: 400; margin-top: 4px; opacity: 0.9; line-height: 1.4;">
+          Emails from scammers often use suspicious or misspelled sender addresses. Always double-check the sender's email domain.
+        </p>
       </div>
     </li>
-    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
-      <span style="font-size:24px;">⏰</span>
-      <div>
-        <strong>Urgent Messages:</strong> Scammers create fake emergencies to rush you into action — breathe, then verify before reacting.
+
+    <li style="
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+      cursor: default;
+    " 
+    onmouseover="this.style.background='rgba(0, 0, 0, 0.3)'" 
+    onmouseout="this.style.background='rgba(0, 0, 0, 0.18)'"
+    >
+      <span style="font-size: 28px;">⏰</span>
+      <div style="font-size: 1rem; font-weight: 600; color: #e0d7ff;">
+        Urgent Messages:
+        <p style="font-weight: 400; margin-top: 4px; opacity: 0.9; line-height: 1.4;">
+          Scammers create fake emergencies to rush you into action — breathe, then verify before reacting.
+        </p>
       </div>
     </li>
-    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
-      <span style="font-size:24px;">📝</span>
-      <div>
-        <strong>Typos & Grammar:</strong> Professional companies proofread emails. Mistakes and awkward phrasing can be red flags.
+
+    <li style="
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+      cursor: default;
+    " 
+    onmouseover="this.style.background='rgba(0, 0, 0, 0.3)'" 
+    onmouseout="this.style.background='rgba(0, 0, 0, 0.18)'"
+    >
+      <span style="font-size: 28px;">📝</span>
+      <div style="font-size: 1rem; font-weight: 600; color: #e0d7ff;">
+        Typos & Grammar:
+        <p style="font-weight: 400; margin-top: 4px; opacity: 0.9; line-height: 1.4;">
+          Professional companies proofread emails. Mistakes and awkward phrasing can be red flags.
+        </p>
       </div>
     </li>
-    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
-      <span style="font-size:24px;">🔗</span>
-      <div>
-        <strong>Strange Links:</strong> Hover over links to see where they really go. If it looks weird or unrelated, don’t click!
+
+    <li style="
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+      cursor: default;
+    " 
+    onmouseover="this.style.background='rgba(0, 0, 0, 0.3)'" 
+    onmouseout="this.style.background='rgba(0, 0, 0, 0.18)'"
+    >
+      <span style="font-size: 28px;">🔗</span>
+      <div style="font-size: 1rem; font-weight: 600; color: #e0d7ff;">
+        Strange Links:
+        <p style="font-weight: 400; margin-top: 4px; opacity: 0.9; line-height: 1.4;">
+          Hover over links to see where they really go. If it looks weird or unrelated, don’t click!
+        </p>
       </div>
     </li>
-    <li style="background:rgba(0,0,0,0.2); border-radius:12px; padding:16px; display:flex; align-items:flex-start; gap:12px;">
-      <span style="font-size:24px;">🔒</span>
-      <div>
-        <strong>Requests for Sensitive Info:</strong> Legit companies never ask for passwords or payment info via email. When in doubt, contact them directly.
+
+    <li style="
+      background: rgba(0, 0, 0, 0.18);
+      border-radius: 14px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: background 0.3s ease;
+      cursor: default;
+    " 
+    onmouseover="this.style.background='rgba(0, 0, 0, 0.3)'" 
+    onmouseout="this.style.background='rgba(0, 0, 0, 0.18)'"
+    >
+      <span style="font-size: 28px;">🔒</span>
+      <div style="font-size: 1rem; font-weight: 600; color: #e0d7ff;">
+        Requests for Sensitive Info:
+        <p style="font-weight: 400; margin-top: 4px; opacity: 0.9; line-height: 1.4;">
+          Legit companies never ask for passwords or payment info via email. When in doubt, contact them directly.
+        </p>
       </div>
     </li>
   </ul>
-  <p style="margin-top:24px; font-weight:600; font-size:14px; opacity:0.8;">
+
+  <p style="
+    margin-top: 2rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  ">
     Remember: When something feels off, trust your gut and verify before acting.
   </p>
 </section>
 
-    <section id="help" class="card">
-      <span class="kicker">If You’re Hacked</span>
-      <h2>Steps to Take if You’re Hacked</h2>
-      <ol class="tips">
-        <li><strong>Change Important Passwords:</strong> Start with email, banking, social media.</li>
-        <li><strong>Enable 2FA:</strong> If it was off, turn it on immediately.</li>
-        <li><strong>Run a Malware Scan:</strong> Use antivirus tools to clean your system.</li>
-        <li><strong>Warn Your Contacts:</strong> Tell friends or colleagues if your account might be compromised.</li>
-        <li><strong>Report & Notify:</strong> Report to the service provider and relevant authorities if needed.</li>
-      </ol>
-    </section>
+    <style>
+  #help {
+    background: #1e293b;
+    color: #f1f5f9;
+    padding: 3rem 2.5rem;
+    border-radius: 24px;
+    max-width: 720px;
+    margin: 3rem auto;
+    box-shadow: 0 14px 40px rgba(30, 41, 59, 0.7);
+    font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+  }
+
+  #help .kicker {
+    display: inline-block;
+    background: #334155;
+    padding: 0.6rem 1.8rem;
+    border-radius: 9999px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #60a5fa;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 16px rgba(96, 165, 250, 0.6);
+  }
+
+  #help h2 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 2.5rem;
+    letter-spacing: 1.2px;
+    color: #e0e7ff;
+    text-shadow: 0 4px 14px rgba(96, 165, 250, 0.45);
+  }
+
+  #help ol.tips {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 540px;
+    font-size: 1.2rem;
+    line-height: 1.75;
+    text-align: left;
+    color: #cbd5e1;
+    counter-reset: step-counter;
+  }
+
+  #help ol.tips li {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 2.8rem;
+    cursor: default;
+    transition: color 0.3s ease;
+  }
+
+  #help ol.tips li strong {
+    color: #60a5fa;
+    font-weight: 700;
+  }
+
+  #help ol.tips li::before {
+    counter-increment: step-counter;
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #3b82f6;
+    color: #e0e7ff;
+    font-weight: 900;
+    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.6);
+    text-align: center;
+    user-select: none;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #help ol.tips li:hover,
+  #help ol.tips li:focus {
+    color: #ffffff;
+  }
+
+  #help ol.tips li:hover::before,
+  #help ol.tips li:focus::before {
+    background: #2563eb;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.85);
+  }
+
+  .backup {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    color: #94a3b8;
+    font-style: italic;
+    padding-left: 1rem;
+    border-left: 3px solid #2563eb;
+  }
+</style>
+
+<section id="help" role="region" aria-labelledby="help-title">
+  <span class="kicker">If You’re Hacked</span>
+
+  <h2 id="help-title">Steps to Take if You’re Hacked</h2>
+
+  <ol class="tips">
+    <li tabindex="0">
+      <strong>Change Important Passwords:</strong> Start with email, banking, and social media accounts to prevent further access.
+      <div class="backup">If you can’t change passwords immediately, enable account recovery options or use temporary lock features.</div>
+    </li>
+    <li tabindex="0">
+      <strong>Enable Two-Factor Authentication (2FA):</strong> If you haven’t already, turn it on immediately for extra security.
+      <div class="backup">If 2FA isn’t available, consider security questions, backup email, or phone number verification.</div>
+    </li>
+    <li tabindex="0">
+      <strong>Run a Malware Scan:</strong> Use trusted antivirus or anti-malware tools to detect and remove threats.
+      <div class="backup">If you don’t have antivirus installed, use reputable online scanners or safe mode scans.</div>
+    </li>
+    <li tabindex="0">
+      <strong>Warn Your Contacts:</strong> Notify friends, family, or colleagues if your account was compromised to prevent spreading scams.
+      <div class="backup">If you can’t access your contacts, post a public warning on your social media profiles or notify through mutual contacts.</div>
+    </li>
+    <li tabindex="0">
+      <strong>Report & Notify:</strong> Inform the affected service providers and, if necessary, relevant authorities about the breach.
+      <div class="backup">If you can’t reach service providers immediately, document all suspicious activity and report as soon as possible.</div>
+    </li>
+  </ol>
+</section>
+
+<script>
+  // Add custom numbers with leading zeros (01, 02, etc.)
+  document.querySelectorAll('#help ol.tips li').forEach((li, i) => {
+    li.querySelector('span').textContent = (i + 1).toString().padStart(2, '0') + '.';
+  });
+</script>
+
+<script>
+  // Add custom numbers with leading zeros (01, 02, etc.)
+  document.querySelectorAll('#help ol.tips li').forEach((li, i) => {
+    li.querySelector('span').textContent = (i + 1).toString().padStart(2, '0') + '.';
+  });
+</script>
     
-    <section id="cyber-news" class="card" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #fff;">
-  <span class="kicker" style="color: var(--brand); font-size: 12px;">CYBER NEWS</span>
-  <h2 style="font-size: 24px; font-weight: 700; margin: 6px 0 12px;">Latest Cybersecurity Headlines</h2>
-  <p style="color: #94a3b8; font-size: 15px; margin-bottom: 20px;">
+    <section id="cyber-news" class="card" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #fff; padding: 1.5rem; border-radius: 12px;">
+  <span class="kicker" style="color: var(--brand); font-size: 0.75rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;">CYBER NEWS</span>
+  <h2 style="font-size: 1.5rem; font-weight: 700; margin: 0.25rem 0 1rem;">Latest Cybersecurity Headlines</h2>
+  <p style="color: #94a3b8; font-size: 0.9375rem; margin-bottom: 1.25rem;">
     Stay up to date with tech and security stories from around the world.
   </p>
   <ul id="news-feed" style="list-style: none; padding-left: 0; margin: 0;">
-    <li>Loading news...</li> <!-- This gets replaced by JS -->
+    <li>Loading news...</li>
   </ul>
 </section>
 
@@ -261,95 +792,69 @@
   </main>
 
   <script>
-    // Password Strength Checker
-    const passwordInput = document.getElementById('password');
-    const strengthText = document.getElementById('strength');
-    passwordInput.addEventListener('input', () => {
-      const pwd = passwordInput.value;
-      let score = 0;
-      if (/[A-Z]/.test(pwd)) score++;
-      if (/[a-z]/.test(pwd)) score++;
-      if (/\d/.test(pwd)) score++;
-      if (/[\W_]/.test(pwd)) score++;
-      if (pwd.length >= 8) score++;
-      const strength = ["Very Weak","Weak","Medium","Strong","Very Strong"];
-      strengthText.textContent = `Strength: ${strength[Math.min(score,4)]}`;
+  // Password Strength Checker
+  const passwordInput = document.getElementById('password');
+  const strengthText = document.getElementById('strength');
+  passwordInput.addEventListener('input', () => {
+    const pwd = passwordInput.value;
+    let score = 0;
+    if (/[A-Z]/.test(pwd)) score++;
+    if (/[a-z]/.test(pwd)) score++;
+    if (/\d/.test(pwd)) score++;
+    if (/[\W_]/.test(pwd)) score++;
+    if (pwd.length >= 8) score++;
+    const strength = ["Very Weak","Weak","Medium","Strong","Very Strong"];
+    strengthText.textContent = `Strength: ${strength[Math.min(score,4)]}`;
+  });
+
+  // Checklist Progress
+  const checkboxes = document.querySelectorAll('.checklist input');
+  const progressBar = document.getElementById('progress-bar');
+  function updateProgress() {
+    const total = checkboxes.length;
+    const checked = Array.from(checkboxes).filter(c => c.checked).length;
+    progressBar.style.width = total ? `${Math.round((checked / total) * 100)}%` : '0%';
+  }
+  checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+  updateProgress();
+
+  // Dark / Light Mode Toggle
+  const toggleBtn = document.getElementById('theme-toggle');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
     });
+  }
 
-    // Checklist Progress (if you have more checklist items elsewhere)
-    const checkboxes = document.querySelectorAll('.checklist input');
-    const progressBar = document.getElementById('progress-bar');
-    function updateProgress() {
-      const total = checkboxes.length;
-      const checked = Array.from(checkboxes).filter(c => c.checked).length;
-      progressBar.style.width = total ? `${Math.round((checked / total) * 100)}%` : '0%';
-    }
-    checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
-    updateProgress();
+  // Quiz Logic
+  const quiz = [
+    { question: "Is 'paypaI.com' a legitimate site?", options: ["Yes", "No"], answer: 1 },
+    { question: "Should you reuse passwords?", options: ["Yes", "No"], answer: 1 }
+  ];
+  const quizContainer = document.getElementById('quiz');
+  if (quizContainer) {
+    quizContainer.innerHTML = quiz.map((q, i) => `
+      <div class="quiz-question">
+        <p>${q.question}</p>
+        ${q.options.map((opt, idx) => `<button onclick="checkAnswer(${i},${idx})">${opt}</button>`).join('')}
+      </div>
+    `).join('');
+  }
+  window.checkAnswer = (qIdx, optIdx) => {
+    alert(optIdx === quiz[qIdx].answer ? "✅ Correct!" : "❌ Try again.");
+  };
 
-    // Dark / Light Mode Toggle
-    const toggleBtn = document.getElementById('theme-toggle');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-      });
-    }
 
-     // Visitor Counter
-    document.addEventListener('DOMContentLoaded', () => {
-      const visitsEl = document.getElementById('visits');
-      if (visitsEl) {
-        const visits = parseInt(localStorage.getItem('visits') || '0') + 1;
-        localStorage.setItem('visits', visits);
-        visitsEl.textContent = `Visitor count (this browser): ${visits}`;
-      }
+  // Save checklist items to localStorage
+  checkboxes.forEach((box, i) => {
+    const key = `safecheck-${i}`;
+    const saved = localStorage.getItem(key);
+    if (saved === '1') box.checked = true;
+    box.addEventListener('change', () => {
+      localStorage.setItem(key, box.checked ? '1' : '0');
+      updateProgress();
     });
-
-    // Quiz Logic
-    const quiz = [
-      { question: "Is 'paypaI.com' a legitimate site?", options: ["Yes", "No"], answer: 1 },
-      { question: "Should you reuse passwords?", options: ["Yes", "No"], answer: 1 }
-    ];
-    const quizContainer = document.getElementById('quiz');
-    if (quizContainer) {
-      quizContainer.innerHTML = quiz.map((q, i) => `
-        <div class="quiz-question">
-          <p>${q.question}</p>
-          ${q.options.map((opt, idx) => `<button onclick="checkAnswer(${i},${idx})">${opt}</button>`).join('')}
-        </div>
-      `).join('');
-    }
-    window.checkAnswer = (qIdx, optIdx) => {
-      alert(optIdx === quiz[qIdx].answer ? "✅ Correct!" : "❌ Try again.");
-    };
-
-    // News Feed (replace 'YOUR_API_KEY' with a valid key)
-    async function loadCyberNews() {
-      const container = document.getElementById('news-feed');
-      if (!container) return;
-      try {
-        const res = await fetch('https://api.currentsapi.services/v1/latest-news?apiKey=1fV9krzvJ1COrayjqLdUVwqtPxwHIrRWSTDeM7VeVAIR6y5E&category=technology');
-        const data = await res.json();
-        const articles = data.news || [];
-        container.innerHTML = articles.map(a => `<li><a href="${a.url}" target="_blank">${a.title}</a></li>`).join('');
-      } catch (e) {
-        container.innerHTML = '<li>Unable to load news.</li>';
-      }
-    }
-    loadCyberNews();
-
-<script>
-
-    // Save checklist items to localStorage
-    checkboxes.forEach((box, i) => {
-      const key = `safecheck-${i}`;
-      const saved = localStorage.getItem(key);
-      if (saved === '1') box.checked = true;
-      box.addEventListener('change', () => {
-        localStorage.setItem(key, box.checked ? '1' : '0');
-        updateProgress();
-      });
-    });
-  </script>
+  });
+</script>
 </body>
 </html>
